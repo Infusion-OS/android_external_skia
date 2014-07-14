@@ -597,7 +597,8 @@ LOCAL_SRC_FILES_arm += \
 	src/opts/SkBlurImage_opts_arm.cpp \
 	src/opts/SkMorphology_opts_arm.cpp \
 	src/opts/SkUtils_opts_arm.cpp \
-	src/opts/SkXfermode_opts_arm.cpp
+	src/opts/SkXfermode_opts_arm.cpp \
+	src/opts/SkTextureCompression_opts_arm.cpp
 
 
 ifeq ($(ARCH_ARM_HAVE_NEON), true)
@@ -619,7 +620,9 @@ LOCAL_SRC_FILES_arm += \
 	src/opts/SkXfermode_opts_arm_neon.cpp \
 	src/opts/ext/S32_Opaque_D32_filter_DX_shaderproc_neon.cpp \
 	src/opts/D32_A8_Black_Neon.S \
-	src/core/asm/SkBlitter_RGB16_NEON.S
+	src/core/asm/SkBlitter_RGB16_NEON.S \
+	src/opts/SkTextureCompression_opts_neon.cpp \
+	src/opts/D32_A8_Black_Neon.S
 
 LOCAL_CFLAGS_arm += \
 	-D__ARM_HAVE_NEON \
@@ -645,7 +648,8 @@ LOCAL_SRC_FILES_x86 += \
 	src/opts/SkMorphology_opts_SSE2.cpp \
 	src/opts/SkUtils_opts_SSE2.cpp \
 	src/opts/SkXfermode_opts_SSE2.cpp \
-	src/opts/SkBitmapProcState_opts_SSSE3.cpp
+	src/opts/SkBitmapProcState_opts_SSSE3.cpp \
+	src/opts/SkTextureCompression_opts_none.cpp
 
 LOCAL_CFLAGS_x86_64 += \
 	-msse2 \
@@ -661,7 +665,8 @@ LOCAL_SRC_FILES_x86_64 += \
 	src/opts/SkMorphology_opts_SSE2.cpp \
 	src/opts/SkUtils_opts_SSE2.cpp \
 	src/opts/SkXfermode_opts_SSE2.cpp \
-	src/opts/SkBitmapProcState_opts_SSSE3.cpp
+	src/opts/SkBitmapProcState_opts_SSSE3.cpp \
+	src/opts/SkTextureCompression_opts_none.cpp
 
 LOCAL_CFLAGS_mips += \
 	-EL
@@ -673,7 +678,8 @@ LOCAL_SRC_FILES_mips += \
 	src/opts/SkMorphology_opts_none.cpp \
 	src/opts/SkUtils_opts_none.cpp \
 	src/opts/SkXfermode_opts_none.cpp \
-	src/opts/SkBlitRow_opts_none.cpp
+	src/opts/SkBlitRow_opts_none.cpp \
+	src/opts/SkTextureCompression_opts_none.cpp
 
 LOCAL_SRC_FILES_mips64 += \
 	src/opts/SkBitmapProcState_opts_none.cpp \
@@ -682,7 +688,8 @@ LOCAL_SRC_FILES_mips64 += \
 	src/opts/SkBlurImage_opts_none.cpp \
 	src/opts/SkMorphology_opts_none.cpp \
 	src/opts/SkUtils_opts_none.cpp \
-	src/opts/SkXfermode_opts_none.cpp
+	src/opts/SkXfermode_opts_none.cpp \
+	src/opts/SkTextureCompression_opts_none.cpp
 
 LOCAL_SRC_FILES_arm64 += \
 	src/opts/SkBitmapProcState_arm_neon.cpp \
@@ -698,7 +705,9 @@ LOCAL_SRC_FILES_arm64 += \
 	src/opts/SkMorphology_opts_neon.cpp \
 	src/opts/SkUtils_opts_none.cpp \
 	src/opts/SkXfermode_opts_arm.cpp \
-	src/opts/SkXfermode_opts_arm_neon.cpp
+	src/opts/SkXfermode_opts_arm_neon.cpp \
+	src/opts/SkTextureCompression_opts_arm.cpp \
+	src/opts/SkTextureCompression_opts_neon.cpp
 
 include external/stlport/libstlport.mk
 include $(BUILD_SHARED_LIBRARY)
