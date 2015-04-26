@@ -523,7 +523,8 @@ LOCAL_SHARED_LIBRARIES := \
 	libicuuc \
 	libicui18n \
 	libexpat \
-	libft2
+	libft2 \
+	libcutils
 
 LOCAL_STATIC_LIBRARIES := \
 	libwebp-decode \
@@ -597,6 +598,7 @@ LOCAL_SRC_FILES_arm += \
 	src/opts/SkMorphology_opts_arm.cpp \
 	src/opts/SkUtils_opts_arm.cpp \
 	src/opts/SkXfermode_opts_arm.cpp
+
 
 ifeq ($(ARCH_ARM_HAVE_NEON), true)
 
