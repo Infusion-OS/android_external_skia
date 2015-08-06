@@ -773,7 +773,7 @@ void SkRGB16_Blitter::blitH(int x, int y, int width) {
             "vld1.u16   {d0,d1,d2,d3}, [%[device]]          \n\t"
             "pld        [%[device], #128]                   \n\t"
             "subs       r4, r4, #1                          \n\t"
-            
+
             "vand.32    q2, q0, q7                          \n\t"
             "vand.32    q4, q1, q7                          \n\t"
             "vrev32.16  q3, q0                              \n\t"
@@ -811,7 +811,7 @@ void SkRGB16_Blitter::blitH(int x, int y, int width) {
             "beq        5f                                  \n\t"
             "cmp        r4, #8                              \n\t"
             "blt        3f                                  \n\t"
-            
+
             "vld1.u16   {d0,d1}, [%[device]]                \n\t"
             "vand.32    q2, q0, q7                          \n\t"
             "vrev32.16  q3, q0                              \n\t"
@@ -1130,7 +1130,7 @@ void SkRGB16_Blitter::blitRect(int x, int y, int width, int height) {
             "vorr.u16   q1, q4, q5                          \n\t"
             "vst1.u16   {d0, d1, d2, d3}, [r7]!             \n\t"//device
             "bne        2b                                  \n\t"
-            
+
             "3:                                             \n\t"
             "ands       r4, %[width], #0xF                  \n\t"
             "beq        6f                                  \n\t"
@@ -1170,7 +1170,7 @@ void SkRGB16_Blitter::blitRect(int x, int y, int width, int height) {
             "orr        r10, r8, r8, lsr #16                \n\t" //must trunk the high 16bits, if not, generate error result
             "strh       r10, [r7], #2                       \n\t"
             "bne        5b                                  \n\t"
-            
+
             "6:                                             \n\t"
             "subs       %[height], %[height], #1            \n\t"
             "add        %[device], %[device], %[deviceRB]   \n\t"
@@ -1181,7 +1181,7 @@ void SkRGB16_Blitter::blitRect(int x, int y, int width, int height) {
             :[width] "r" (width), [deviceRB] "r" (deviceRB), [src_expand] "r" (src_expand), [scale] "r" (scale)
             :"memory", "r4", "r7", "r8", "r9", "r10", "d0", "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "d10", "d11", "d12", "d13", "d14", "d15", "d16", "d17"
             );
-             
+
 #else
     //r7 init device
     //r9 mask
